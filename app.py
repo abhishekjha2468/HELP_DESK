@@ -1,9 +1,8 @@
-import math
 import random
-from tqdm.notebook import tqdm
+# from tqdm.notebook import tqdm
 def create_suffled_option(DICTIONARY,A,B,C,D,E,CO):
   L=list(filter(lambda i: i!="", [A,B,C,D,E]))
-  for i in tqdm(DICTIONARY):
+  for i in DICTIONARY:
     l=random.sample(L,len(L))
     if len(L)==5:
       i["A"]=l[0]
