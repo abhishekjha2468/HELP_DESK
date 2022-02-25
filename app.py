@@ -34,16 +34,18 @@ def create_suffled_option(DICTIONARY,A,B,C,D,E,CCO):
   ########################################################
 
   L=list(filter(lambda i: i!="", [A,B,C,D,E]))
+#   [objective_answer_types([])]
+#   [objective_all_shuffle([])]
   if len(L)==5:
-    ols = f'[objective_all_shuffle([val(A)],[val(B)],[val(C)],[val(D)],[val(E)])]'
+    ols = f'[objective_answer_types([val(A)],[val(B)],[val(C)],[val(D)],[val(E)])]'
   elif len(L)==4:
-    ols = f'[objective_all_shuffle([val(A)],[val(B)],[val(C)],[val(D)])]'
+    ols = f'[objective_answer_types([val(A)],[val(B)],[val(C)],[val(D)])]'
   elif len(L)==3:
-    ols = f'[objective_all_shuffle([val(A)],[val(B)],[val(C)])]'
+    ols = f'[objective_answer_types([val(A)],[val(B)],[val(C)])]'
   elif len(L)==2:
-    ols = f'[objective_all_shuffle([val(A)],[val(B)])]'
+    ols = f'[objective_answer_types([val(A)],[val(B)])]'
   elif len(L)==1:
-    ols = f'[objective_all_shuffle([val(A)])]'
+    ols = f'[objective_answer_types([val(A)])]'
   else:
     ols = ""
   
