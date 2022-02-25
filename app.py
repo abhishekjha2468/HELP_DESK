@@ -32,7 +32,7 @@ def create_suffled_option(DICTIONARY,A,B,C,D,E,CO):
   
   ########################################################
 
-  L=list(filter(lambda i: i!="", [A,B,C,D]))
+  L=list(filter(lambda i: i!="", [A,B,C,D,E]))
   if len(L)==5:
     ols = f'[objective_all_shuffle([val(A)],[val(B)],[val(C)],[val(D)],[val(E)])]'
   elif len(L)==4:
@@ -43,6 +43,8 @@ def create_suffled_option(DICTIONARY,A,B,C,D,E,CO):
     ols = f'[objective_all_shuffle([val(A)],[val(B)])]'
   elif len(L)==1:
     ols = f'[objective_all_shuffle([val(A)])]'
+   else:
+    ols = ""
   
   #########################################################
   return DICTIONARY,ols,f'[[val(O)]]',f'string(Hence, option latex(expr(O+1)) is correct.)'
