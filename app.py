@@ -43,7 +43,7 @@ def create_suffled_option(DICTIONARY,A,B,C,D,E,CO):
     ols = f'[objective_all_shuffle([val(A)],[val(B)])]'
   elif len(L)==1:
     ols = f'[objective_all_shuffle([val(A)])]'
-   else:
+  else:
     ols = ""
   
   #########################################################
