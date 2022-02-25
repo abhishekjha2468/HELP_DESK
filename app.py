@@ -1,7 +1,7 @@
 import random
 # from tqdm.notebook import tqdm
 def create_suffled_option(DICTIONARY,A,B,C,D,E,CCO):
-  CO=[A,B,C,D,E][CCO]
+  CO=[A,B,C,D,E][int(CCO)]
   L=list(filter(lambda i: i!="", [A,B,C,D,E]))
   for i in DICTIONARY:
     l=random.sample(L,len(L))
