@@ -69,6 +69,13 @@ import ast
 app = Flask(__name__)
 #run_with_ngrok(app) 
 
+@app.route("/home", methods=['GET'])
+def home2():
+    f=open("cerebry_helpdesk.html","r")
+    text=f.read()
+    f.close()
+    return text
+
 @app.route("/", methods=['GET'])
 def home():
     f=open("cerebry_helpdesk.html","r")
