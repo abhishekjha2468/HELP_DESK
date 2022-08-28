@@ -2,11 +2,62 @@
 <html lang="en">
 
 <head>
-    <title>Tool1</title>
+    <title>Tool_1_RESULT</title>
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 <script>
+      function validateform(){  
+	var name=document.profileform.first_name.value;
+	var University_roll=document.profileform.University_Roll.value;  
+	var password=document.profileform.password.value;  
+	var email=document.profileform.email.value;  
+	var phone_number=document.profileform.phone_number.value;  
+	var confirmpassword=document.profileform.confirm_password.value;
+	var University=document.profileform.University.value;
+	var Branch=document.profileform.Branch.value;
+	var college=document.profileform.College.value;  
+	  
+	  if (name==null || name==""){
+	  alert("Please Enter Your Name");  
+	  return false;  
+	}
+	  if(password!=confirmpassword){
+	  alert("Password Must Be Same");  
+	  return false; 
+	}
+	  if(password.length<6){
+	  alert("Password must be at least 6 characters long.");  
+	  return false;
+	}  
+	  if (University_roll==null || University_roll==""){  
+	  alert("Please Enter Your University RollNumber");  
+	  return false;  
+	}
+	  if(email==null || email==""){
+	  alert("Please Enter Your Email.");  
+	  return false; 
+	}
+	  if(phone_number==null || phone_number==""){
+	  alert("Please Enter Your Phone Number.");  
+	  return false; 
+	}
+	  if(University==null || University==""){
+	  alert("Please Select Your University.");  
+	  return false; 
+	}
+	 if(Branch==null || Branch==""){
+	  alert("Please Select Your Branch.");  
+	  return false; 
+	}
+	 if(college==null || college==""){
+	  alert("Please Select Your College.");  
+	  return false; 
+	}
+	}
+	   
+	
+
  </script>
 <style type="text/css">
     
@@ -409,7 +460,7 @@ input {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
-  width: 100%;
+  width: 220%;
   font-size: 14px;
   font-family: inherit;
 }
@@ -705,69 +756,38 @@ input {
         <div class="wrapper wrapper--w680">
             <div class="card card-4">
                 <div class="card-body">
-                    <h2 class="title">Shuffled mcq with correct option</h2>
+                    <h2 class="title">Generation set details</h2>
                     <form method="POST" name="profileform" onsubmit="return validateform()">
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Option 1</label>
-                                    <input class="input--style-4" type="text" name="option_1" >
+                                    <label class="label">Generation String</label>
+                                    <input class="input--style-4" type="text" name="generation_string" value="generation_string">
                                 </div>
                             </div>
                         </div>
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Option 2</label>
-                                    <input class="input--style-4" type="text" name="option_2" >
+                                    <label class="label">Conditions</label>
+                                    <input class="input--style-4" type="text" name="condition" value="condition">
                                 </div>
                             </div>
                         </div>
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Option 3</label>
-                                    <input class="input--style-4" type="text" name="option_3" >
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Option 4</label>
-                                    <input class="input--style-4" type="text" name="option_4" >
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Option 5</label>
-                                    <input class="input--style-4" type="text" name="option_5" >
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Correct Option</label>
-                                    <input class="input--style-4" type="text" name="correct_option" pattern="[0-5]">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Generation string</label>
-                                    <input class="input--style-4" type="text" name="gen_string" >
+                                    <label class="label">Custom Values</label>
+                                    <input class="input--style-4" type="text" name="custom_values" value="custom_values" >
                                 </div>
                             </div>
                         </div>
                         
+                        
                             
 
                         <div class="p-t-15">
-                            <button class="btn btn--radius-2 btn--blue" type="submit" formaction="/tool1_submit">Submit</button>
+                            <button class="btn btn--radius-2 btn--blue" type="submit" formaction="/tool2_submit">Submit</button>
                         </div>
                     </form>
                 </div>
