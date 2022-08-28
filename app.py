@@ -93,12 +93,16 @@ def tool():
         f=open("tool1.html","r")
         text=f.read()
         f.close()
+    if tool=="generation_values":
+        f=open("tool2.html","r")
+        text=f.read()
+        f.close()
     else:
         text="Sorry tool is not selected properly"
     return text
 
 @app.route("/tool1_submit", methods=['GET', 'POST'])
-def too1():
+def tool1():
     try: option_1 = request.form['option_1']
     except: option_1=""
     try: option_2 = request.form['option_2']
@@ -124,5 +128,97 @@ def too1():
         return text
     except:
         return "SORRY SOMETHING WENT WRONG"
-  
+ 
+####################################################################3
+def read_input_type(s):
+  return ast.literal_eval(s)
+
+def format_list(l):
+  L=[]
+  for i in l[1:-1].split(","):
+    try:
+      L.append(read_input_type(i.strip()))
+    except:
+      L.append(i.strip())
+  return L
+
+def format_tuple(t):
+  return list(range(t[0],t[1]+1))
+
+def find_key_values(d):
+  var_list=[]
+  Keys=[]
+  Values=[]
+  if type(d)==str:
+    d=read_input_type(d)
+  for (k,v) in d.items():
+    if type(v)==str:
+      if v[0]=="[":
+        val=format_list(v)
+        # print(v,val,k)
+        Keys.append(k)
+        Values.append(val)
+      elif v[0]=="(":
+        val=format_tuple(read_input_type(v))
+        # print(v,val,k)
+        Keys.append(k)
+        Values.append(val)
+      elif "," not in list(v):
+        Keys.append(k)
+        try: Values.append([read_input_type(v)])
+        except: Values.append([v])
+      else:
+        print("Wrong input format")
+    else:
+      Keys.append(k)
+      Values.append([v])
+  return Keys,Values
+
+def find_all_comb(d):
+  d=read_input_type(d)
+  K,V=find_key_values(d)
+  possible_values=list(itertools.product(*V))
+  possible_combinations=list(map(lambda k,v: dict(zip(k,v)) ,[K]*len(possible_values),possible_values))
+  return possible_combinations
+
+def filter_combination(possible_combinations,condition_string):
+  filtered_combination=[]
+  for i in possible_combinations:
+    globals().update(i)
+    # print(p,q,r,s)
+    if eval(condition_string):
+      filtered_combination.append(i)
+  return filtered_combination
+
+def find_filtered_combination(d,condition_string):
+  possible_combinations=find_all_comb(d)
+  return filter_combination(possible_combinations,condition_string)
+
+def condition_verify(d,condition_string):
+  d=find_filtered_combination(d,"True")[0]
+  globals().update(d)
+  return eval(condition_string.replace(" and ",",").replace(" or ",","))
+
+@app.route("/tool2_submit", methods=['GET', 'POST'])
+def tool2():
+    try: generation_string = request.form['generation_string']
+    except: generation_string=""
+    try: condition = request.form['condition']
+    except: condition=""
+    try: custom_values = request.form['custom_values']
+    except: custom_values=""
+    if custom_values!="":
+      condition_check_result=str(condition_verify(custom_values,condition))
+    else:
+      condition_check_result=""
+    filtered_combination_set=str(find_filtered_combination(generation_string,condition))
+    try:
+        f=open("tool2result.html","r")
+        text=f.read()
+        f.close()
+        text=text.replace("filtered_combination_set",filtered_combination_set).replace("condition_check_result",condition_check_result)
+        return text
+    except:
+        return "SORRY SOMETHING WENT WRONG"
+############################################################
 #app.run()
