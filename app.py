@@ -55,6 +55,9 @@ def create_suffled_option(DICTIONARY,A,B,C,D,E,CCO):
 #########################################################################################################################
 import pandas as pd
 import numpy as np
+import math
+import itertools
+import numpy
 from flask import Flask, request, render_template
 from flask_ngrok import run_with_ngrok
 from flask import Flask, jsonify, request
