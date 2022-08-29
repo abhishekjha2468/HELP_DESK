@@ -201,17 +201,19 @@ def change(K):
   return str(K).replace("'","")
 
 def find_filtered_combination2(d,condition):
-  d=read_input_type(d)
-  K,V=find_key_values(d)
-  print(K,V)
-  LL=[]
-  print("".join([f'for {k} in {v}:\n{f"  "*(e+1)}' for e,(k,v) in enumerate(zip(K,V))])+f"if {condition}: LL.append({change(K)})")
-  exec("".join([f'for {k} in {v}:\n{f"  "*(e+1)}' for e,(k,v) in enumerate(zip(K,V))])+f"if {condition}: LL.append({change(K)})")
-  
-  # possible_values=list(itertools.product(*V))
-  # print("hello")
-  possible_combinations=list(map(lambda k,v: dict(zip(k,v)) ,[K]*len(LL),LL))
-  return possible_combinations
+  try:
+    d=read_input_type(d)
+    K,V=find_key_values(d)
+    print(K,V)
+    LL=[]
+    print("".join([f'for {k} in {v}:\n{f"  "*(e+1)}' for e,(k,v) in enumerate(zip(K,V))])+f"if {condition}: LL.append({change(K)})")
+    exec("".join([f'for {k} in {v}:\n{f"  "*(e+1)}' for e,(k,v) in enumerate(zip(K,V))])+f"if {condition}: LL.append({change(K)})")
+
+    # possible_values=list(itertools.product(*V))
+    # print("hello")
+    possible_combinations=list(map(lambda k,v: dict(zip(k,v)) ,[K]*len(LL),LL))
+    return possible_combinations
+  except Exception as e: return(str(e))
 
 def condition_verify(d,condition_string):
   d=find_filtered_combination(d,"True")[0]
