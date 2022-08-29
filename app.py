@@ -197,6 +197,8 @@ def find_filtered_combination(d,condition_string):
   possible_combinations=find_all_comb(d)
   return filter_combination(possible_combinations,condition_string)
 
+def change(K):
+  return str(K).replace("'","")
 
 def find_filtered_combination2(d,condition):
   d=read_input_type(d)
