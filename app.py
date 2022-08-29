@@ -212,8 +212,8 @@ def find_filtered_combination2(d,condition):
     # possible_values=list(itertools.product(*V))
     # print("hello")
     possible_combinations=list(map(lambda k,v: dict(zip(k,v)) ,[K]*len(LL),LL))
-    return possible_combinations
-  except Exception as e: return(str(e))
+    return False,possible_combinations
+  except Exception as e: True,return(str(e))
 
 def condition_verify(d,condition_string):
   d=find_filtered_combination(d,"True")[0]
@@ -232,7 +232,10 @@ def tool2():
       condition_check_result=str(condition_verify(custom_values,condition))
     else:
       condition_check_result=""
-    filtered_combination_set=str(find_filtered_combination2(generation_string,condition))
+    flag,filtered_combination_set=find_filtered_combination2(generation_string,condition)
+    filtered_combination_set=str(filtered_combination_set)
+    if flag:
+      return filtered_combination_set
     try:
         f=open("tool2result.html","r")
         text=f.read()
