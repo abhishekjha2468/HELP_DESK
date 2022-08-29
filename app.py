@@ -197,6 +197,20 @@ def find_filtered_combination(d,condition_string):
   possible_combinations=find_all_comb(d)
   return filter_combination(possible_combinations,condition_string)
 
+
+def find_filtered_combination2(d,condition):
+  d=read_input_type(d)
+  K,V=find_key_values(d)
+  print(K,V)
+  LL=[]
+  print("".join([f'for {k} in {v}:\n{f"  "*(e+1)}' for e,(k,v) in enumerate(zip(K,V))])+f"if {condition}: LL.append({change(K)})")
+  exec("".join([f'for {k} in {v}:\n{f"  "*(e+1)}' for e,(k,v) in enumerate(zip(K,V))])+f"if {condition}: LL.append({change(K)})")
+  
+  # possible_values=list(itertools.product(*V))
+  # print("hello")
+  possible_combinations=list(map(lambda k,v: dict(zip(k,v)) ,[K]*len(LL),LL))
+  return possible_combinations
+
 def condition_verify(d,condition_string):
   d=find_filtered_combination(d,"True")[0]
   globals().update(d)
@@ -214,7 +228,7 @@ def tool2():
       condition_check_result=str(condition_verify(custom_values,condition))
     else:
       condition_check_result=""
-    filtered_combination_set=str(find_filtered_combination(generation_string,condition))
+    filtered_combination_set=str(find_filtered_combination2(generation_string,condition))
     try:
         f=open("tool2result.html","r")
         text=f.read()
