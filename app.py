@@ -213,7 +213,7 @@ def find_filtered_combination2(d,condition):
     # print("hello")
     possible_combinations=list(map(lambda k,v: dict(zip(k,v)) ,[K]*len(LL),LL))
     return False,possible_combinations
-  except Exception as e: True,return(str(e))
+  except Exception as e: return True,str(e)
 
 def condition_verify(d,condition_string):
   d=find_filtered_combination(d,"True")[0]
