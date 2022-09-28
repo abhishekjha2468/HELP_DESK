@@ -1,10 +1,10 @@
 requests
-python-firebase
-git+https://github.com/ozgur/python-firebase
-flask==1.1.4
-numpy==1.19.5
-pandas==1.1.5
-requests==2.23.0
+#python-firebase
+#git+https://github.com/ozgur/python-firebase
+flask
+numpy
+pandas
+requests
 flask_ngrok
 Werkzeug
 pymysql
