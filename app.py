@@ -91,12 +91,12 @@ def home():
 @app.route("/tool_submit", methods=['GET', 'POST'])
 def tool():
     try: tool = request.form['University']
-    except: tool="shuffled_mcq_with_correct_option"
+    except: return "Exception, Sorry tool is not selected properly"
     if tool=="shuffled_mcq_with_correct_option":
         f=open("tool1.html","r")
         text=f.read()
         f.close()
-    if tool=="generation_values":
+    elif tool=="generation_values":
         f=open("tool2.html","r")
         text=f.read()
         f.close()
