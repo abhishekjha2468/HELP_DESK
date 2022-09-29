@@ -8,6 +8,6 @@ requests==2.23.0
 flask_ngrok
 Werkzeug
 pymysql
-#mysql-connector-python
-#mysqlclient
+mysql-connector-python
+mysqlclient
 gunicorn
