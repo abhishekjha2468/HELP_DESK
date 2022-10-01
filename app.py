@@ -67,10 +67,8 @@ import os
 # import sqlite3
 # import mysql.connector
 import requests
-# from firebase import firebase
+from firebase import firebase
 import ast
-import firebase
-
 
 app = Flask(__name__)
 #run_with_ngrok(app) 
