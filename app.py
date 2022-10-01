@@ -100,9 +100,14 @@ def tool():
         f=open("tool2.html","r")
         text=f.read()
         f.close()
+    elif tool=="Project":
+        f=open("cerbpro1.html","r")
+        text=f.read()
+        f.close()
     else:
         text="Sorry tool is not selected properly"
     return text
+
 
 @app.route("/tool1_submit", methods=['GET', 'POST'])
 def tool1():
@@ -244,5 +249,43 @@ def tool2():
         return text
     except:
         return "SORRY SOMETHING WENT WRONG"
+def pro_1_save_data(dvid,ch_n,tp_n,tch_l,alst_n,ti_l):
+    f=firebase.FirebaseApplication("https://projectdeliverypankaj-default-rtdb.firebaseio.com/",None)
+    data={
+        "Deliveryid" :dvid,
+        "Chaptername": ch_n,
+        "Topicname"  : tp_n,
+        "Teacherlead":tch_l,
+        "Analystname": alst_n ,
+        "Timeline" : ti_l  }
+    result=f.post("https://projectdeliverypankaj-default-rtdb.firebaseio.com/Project",data)
+    return result
+
+def pro_1_read_data(index=""):
+    f=firebase.FirebaseApplication("https://projectdeliverypankaj-default-rtdb.firebaseio.com/",None)
+    r=f.get("https://projectdeliverypankaj-default-rtdb.firebaseio.com/Project",index)
+    DF=pd.DataFrame()
+    DF["Deliveryid"]=[i["Deliveryid"] for i in r.values()]
+    DF["Chaptername"]=[i["Chaptername"] for i in r.values()]
+    DF["Topicname"]=[i["Topicname"] for i in r.values()]
+    DF["Teacherlead"]=[i["Teacherlead"] for i in r.values()]
+    DF["Analystname"]=[i["Analystname"] for i in r.values()]
+    DF["Timeline"]=[i["Timeline"] for i in r.values()]
+
+    DF.index=[i for i in r.keys()]
+    return DF
+
+
+
+@app.route("/projectsavedata", methods=['GET','POST'])
+def save():
+    Analystname=request.form["ayst_n"]
+    Deliveryid=request.form["did"]
+    Chaptername=request.form["chp_name"]
+    Teacherlead=request.form["tch_lead"]
+    Topicname=request.form["tpc_name"]
+    Timeline=request.form["time_line"]
+    result=pro_1_save_data(Deliveryid,Chaptername,Topicname,Teacherlead,Analystname,Timeline)
+    return f'Your Task id is {result["name"]}'
 ############################################################
 #app.run()
