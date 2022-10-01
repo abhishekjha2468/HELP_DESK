@@ -69,6 +69,7 @@ import os
 import requests
 # from firebase import firebase
 import ast
+import firebase
 
 
 app = Flask(__name__)
