@@ -218,7 +218,7 @@ def find_filtered_combination2(d,condition):
     possible_combinations=list(map(lambda k,v: dict(zip(k,v)) ,[K]*len(LL),LL))
     K=[]
     FLL=[]
-    for i in LL:
+    for i in possible_combinations:
       v=[]
       for j in i.values():
         if type(j)!=str: v.append(j)
