@@ -216,16 +216,17 @@ def find_filtered_combination2(d,condition):
     # possible_values=list(itertools.product(*V))
     # print("hello")
     possible_combinations=list(map(lambda k,v: dict(zip(k,v)) ,[K]*len(LL),LL))
-    possible_combinationss=[]
+    K=[]
     FLL=[]
-    for i in possible_combinations:
+    for i in LL:
       v=[]
       for j in i.values():
         if type(j)!=str: v.append(j)
       if v not in K:
         FLL.append(i)
-      possible_combinationss.append(v)
-    return False,possible_combinationss
+      K.append(v)
+    possible_combinations=FLL
+    return False,possible_combinations
   except Exception as e: return True,str(e)
 
 def condition_verify(d,condition_string):
