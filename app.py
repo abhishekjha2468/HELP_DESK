@@ -103,6 +103,8 @@ def tool():
         f=open("cerbpro1.html","r")
         text=f.read()
         f.close()
+    elif tool=="testing":
+        return render_template('painting-company-website-template/index.html')
     else:
         text="Sorry tool is not selected properly"
     return text
