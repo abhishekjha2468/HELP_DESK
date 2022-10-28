@@ -70,7 +70,7 @@ import requests
 from firebase import firebase
 import ast
 
-app = Flask(__name__)
+app = Flask(__name__,template_folder='painting-company-website-template')
 #run_with_ngrok(app) 
 
 @app.route("/home", methods=['GET'])
@@ -104,7 +104,7 @@ def tool():
         text=f.read()
         f.close()
     elif tool=="testing":
-        return render_template('painting-company-website-template/index.html')
+        return render_template('index.html')
     else:
         text="Sorry tool is not selected properly"
     return text
