@@ -58,7 +58,7 @@ import numpy as np
 import math
 import itertools
 import numpy
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, jsonify
 from flask_ngrok import run_with_ngrok
 from flask import Flask, jsonify, request
 from werkzeug.utils import secure_filename
@@ -298,5 +298,12 @@ def save():
     Timeline=request.form["time_line"]
     result=pro_1_save_data(Deliveryid,Chaptername,Topicname,Teacherlead,Analystname,Timeline)
     return f'Your Task id is {result["name"]}'
+  
+@app.route("/api/testjson", methods=['GET'])
+def test_json():
+    data=[{"Task_header": "Bug in buildng sam","Task_defination":"sam command not found","Higest_price":100,"Lowest_price":40},
+          {"Task_header": "Bug in buildng docker image","Task_defination":"How to install docker desktop","Higest_price":110,"Lowest_price":45},
+          {"Task_header": "How to use postman","Task_defination":"Need to test api's with multiple methods GET,POST,PUT,DELETE, etc..","Higest_price":90,"Lowest_price":50}]
+    return jsonify(data)
 ############################################################
 #app.run()
