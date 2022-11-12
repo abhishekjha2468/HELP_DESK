@@ -69,8 +69,10 @@ import os
 import requests
 from firebase import firebase
 import ast
+from flask_cors import CORS
 
 app = Flask(__name__,template_folder='painting-company-website-template')
+CORS(app)
 #run_with_ngrok(app) 
 
 @app.route("/home", methods=['GET'])
