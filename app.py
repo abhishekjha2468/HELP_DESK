@@ -70,6 +70,7 @@ import requests
 from firebase import firebase
 import ast
 from flask_cors import CORS
+import json
 
 app = Flask(__name__,template_folder='painting-company-website-template')
 CORS(app)
@@ -307,5 +308,11 @@ def test_json():
           {"Task_header": "Bug in buildng docker image","Task_defination":"How to install docker desktop","Higest_price":110,"Lowest_price":45},
           {"Task_header": "How to use postman","Task_defination":"Need to test api's with multiple methods GET,POST,PUT,DELETE, etc..","Higest_price":90,"Lowest_price":50}]
     return jsonify(data)
+  
+@app.route("/api/skilltest/java", methods=['GET'])
+def skillTestJava():
+    f = open('java_test.json')
+    data = json.load(f)
+    return jsonify(random.sample(list(data['java'].values()),10))
 ############################################################
 #app.run()
