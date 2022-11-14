@@ -1,0 +1,125 @@
+{
+	
+	"java" : {
+		"1" : {
+			"Question" : "What is displayed when this code is compiled and executed?<br>Public class main {<br>public static void main(string[] args) {<br>int x= 5;x = 10;System.out.println(x);  <br>}<br>}",
+			"Options" : ["5",
+				"null",
+				"x",
+				"10"],
+			"CorrectAnswer" : "3"
+		},
+		"2" : {
+			"Question" : "What statement returns true if “nifty” is of type String?",
+			"Options" : ["“nifty”.getType().equals(“string”)",
+				"nifty”.getClass().getSimpleName() == “String”",
+				"“nifty” instantceof String",
+				"“nifty” .getType() == String"],
+			"CorrectAnswer" : "2"
+		},
+		"3" : {
+			"Question" : "Given the string “strawberries” saved in a variable called fruit, what would fruit .substring(2, 5) return?",
+			"Options" : ["raw",
+				"rawb",
+				"traw",
+				"awb"],
+			"CorrectAnswer" : "0"
+		},
+		"4" : {
+			"Question" : "What is the result of this code?<br>try{  System.out.print(“Hello World”);}catch(Exception e) {<br>  System.out.println(“e”);}catch(ArithmeticException e)<br> { System.out.println(“e”);}finalyy{ System.out.println(“!”);}",
+			"Options" : ["It will not compile because the second catch statement is unreachable.",
+				"Hello World",
+				"Hellow World!",
+				"It will thwow a runtime exception."],
+			"CorrectAnswer" : "0"
+		},
+		"5" : {
+			"Question" : "How many times will this code print “Hello World”?<br>class Main{ public static void main(String[] args) {<br>   for (int i=0; i<10; i=i++){    i+=1;    System.out.println(“Hello World!”);   }  }}",
+			"Options" : ["9 times",
+				"infinite number of times",
+				"5 times",
+				"10 times"],
+			"CorrectAnswer" : "0"
+		},
+		"6" : {
+			"Question" : "What is the result of this code?<br>class Main { Object message(){ return “Hello!”;<br> } public static void main(String[] args) { System.out.print(newmain().MESSAGE()); System.out.print(new Main2().message()); }}class Main2 extends Main { String message(){ return “World!”;  }}",
+			"Options" : ["It will compile because of line 7.",
+				"Hello!Hello!",
+				"Hello!World!",
+				"It will not compile because of line 11."],
+			"CorrectAnswer" : "2"
+		},
+		"7" : {
+			"Question" : "You have an ArrayList of names that you want to sort alphabetically. Which approach would not work?",
+			"Options" : ["names.sort(Comparator.comparing(String::toString))",
+				"names = names.stream().sorted((s1, s2) -> s1.compareTo(s2)).collect(Collectors.toList())",
+				"names.sort(List.DECENDING)",
+				"Collections.sort(names)"],
+			"CorrectAnswer" : "2"
+		},
+		"8" : {
+			"Question" : "What is the output of this code?<br>import java.util.*;<br>class Main {<br>  public static void main(String[] args) {  List<Boolean> list = new ArrayList<>();<br>  list.add(true);<br>  list.add(Boolean.parseBoolean(“False”));<br>  list.add(Boolean.TRUE);<br>  System.out.print(list.size());<br>  System.out.print(list.get(1) instanceof Boolean);<br>  }}",
+			"Options" : ["3false",
+				"3true",
+				"2true",
+				"A runtime exception is thrown"],
+			"CorrectAnswer" : "2"
+		},
+		"9" : {
+			"Question" : "What method can be used to create a new instance of an object?",
+			"Options" : ["another instance",
+				"field",
+				"private method",
+				"constructor"],
+			"CorrectAnswer" : "3"
+		},
+		"10" : {
+			"Question" : "How can you achieve runtime polymorphism in Java?",
+			"Options" : ["method calling",
+				"method overrunning",
+				"method overriding",
+				"method overloading"],
+			"CorrectAnswer" : "3"
+		},
+		"11" : {
+			"Question" : "What is the output of this code?<br>class Main { public static void main(String[] args) {<br> String message = “Hello wold!”;<br> String newMessage = message.substring(6, 12) + message.substring(12, 6);<br> System.out.println(newMessage);<br> }}",
+			"Options" : ["The code does not compile",
+				"A runtime exception is thrown",
+				"world!world!",
+				"world!!world"],
+			"CorrectAnswer" : "1"
+		},
+		"12" : {
+			"Question" : "Which is the most reliable expression for testing whether the values of two string variables are the same?",
+			"Options" : ["string1 == string2",
+				"string1.equals(string2)",
+				"string1 = string2",
+				"string1.matches(string2)"],
+			"CorrectAnswer" : "1"
+		},
+		"13" : {
+			"Question" : "What is the output of this code?<br>class Main {<br>  static int cound = 0;<br>  public static void main(String[] args)  {<br>if(cound <3)<br>{count++;main(null);}<br>else{  return;<br>   }   System.out.println(“Hello World”);<br>  }}",
+			"Options" : ["it will throw a runtime exception.",
+				"it will print “Hello World!” three times.",
+				"it will not compile.",
+				"it will run forever."],
+			"CorrectAnswer" : "3"
+		},
+		"14" : {
+			"Question" : "What is the output of this code?<br>class main {<br>  public static void main(String[] args) {<br>   List list = new ArrayList();   list.add(“hello”);<br>   list.add(2);<br>   System.out.print(list.get(0) instanceof Object);<br>   System.out.print(list.get(1) instanceof Integer);<br>  }}",
+			"Options" : ["falsetrue",
+				"The code does not compile.",
+				"truetrue",
+				"truefalse"],
+			"CorrectAnswer" : "2"
+		},
+		"15" : {
+			"Question" : "By implementing encapsulation, you cannot directly access the class’s _____ properties unless you are writing code inside the class itself.",
+			"Options" : ["private",
+				"protected",
+				"public",
+				"no-modifier"],
+			"CorrectAnswer" : "0"
+		}
+	}
+}
